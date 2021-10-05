@@ -1,0 +1,21 @@
+{
+    "name": "com.goodcat.ecslite.shared",
+    "author": "GoodCat",
+    "displayName": "LeoECS Lite Shared Injection",
+    "description": "Shared injection for LeoECS Lite.",
+    "unity": "2020.3",
+    "version": "2021.5.10",
+    "keywords": [
+        "leoecslite",
+        "leoecs",
+        "ecs",
+        "dependency injection",
+        "di",
+        "performance"
+    ],
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GoodCatGames/ecslite-shared.git"
+    }
+}

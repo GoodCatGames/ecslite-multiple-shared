@@ -1,0 +1,16 @@
+{
+	"name": "GoodCat.EcsLite.Shared",
+	"rootNamespace": "GoodCat.EcsLite.Shared",
+	"references": [
+		"Leopotam.EcsLite"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": true,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}
