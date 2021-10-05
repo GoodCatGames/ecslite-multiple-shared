@@ -1,4 +1,4 @@
-# Shared injection for LeoEcsLite C# Entity Component System framework
+# Multiple shared injection for LeoEcsLite C# Entity Component System framework
 Dependency injection for [LeoECS Lite](https://github.com/Leopotam/ecslite).
 
 > Tested on unity 2020.3 (not dependent on it) and contains assembly definition for compiling to separate assembly file for performance reason.
@@ -21,7 +21,7 @@ Dependency injection for [LeoECS Lite](https://github.com/Leopotam/ecslite).
 ## As unity module
 This repository can be installed as unity module directly from git url. In this way new line should be added to `Packages/manifest.json`:
 ```
-"com.goodcat.ecslite.shared": "https://github.com/GoodCatGames/ecslite-shared.git",
+"com.goodcat.ecslite.shared": "https://github.com/GoodCatGames/ecslite-multiple-shared.git",
 ```
 
 ## As source
