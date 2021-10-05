@@ -21,7 +21,7 @@ Dependency injection for [LeoECS Lite](https://github.com/Leopotam/ecslite).
 ## As unity module
 This repository can be installed as unity module directly from git url. In this way new line should be added to `Packages/manifest.json`:
 ```
-"com.goodcat.ecslite.shared": "https://github.com/GoodCatGames/ecslite-multiple-shared.git",
+"com.goodcat.ecslite.shared": "https://github.com/GoodCatGames/ecslite-multiple-shared.git"
 ```
 
 ## As source
