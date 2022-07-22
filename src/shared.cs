@@ -4,16 +4,17 @@ using System.Linq;
 using System.Reflection;
 using Leopotam.EcsLite;
 
-namespace GoodCat.EcsLite.Shared 
+namespace GoodCat.EcsLite.Shared
 {
     public static class shared
     {
         private const string SharedFieldNameInEcsSystems = "_shared";
         private static readonly Type SharedAttrType = typeof(EcsInjectAttribute);
 
-        public static EcsSystems InjectShared<T>(this EcsSystems systems,  T instance)
+        public static IEcsSystems InjectShared<T>(this IEcsSystems systems, T instance)
         {
             var sharedObject = systems.GetShared<object>();
+
             Shared shared = null;
             if (sharedObject == null)
             {
@@ -39,23 +40,17 @@ namespace GoodCat.EcsLite.Shared
             return systems;
         }
 
-        public static EcsSystems InitShared(this EcsSystems systems)
+        public static IEcsSystems InitShared(this IEcsSystems systems)
         {
-            IEcsSystem[] allSystems = null;
-            var systemsCount = systems.GetAllSystems(ref allSystems);
-
             var shared = systems.GetShared<Shared>();
-
-            for (var i = 0; i < systemsCount; i++)
+            foreach (IEcsSystem system in systems.GetAllSystems())
             {
-                var system = allSystems[i];
-                foreach (var fieldInfo in system.GetType()
-                    .GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+                foreach (FieldInfo fieldInfo in system.GetType()
+                             .GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
                 {
                     SetFieldValue(shared, system, fieldInfo);
                 }
             }
-
             return systems;
         }
 
@@ -84,14 +79,15 @@ namespace GoodCat.EcsLite.Shared
 #if DEBUG
                 if (_dictionary.ContainsKey(type) == false)
                 {
-                    throw new Exception($"The instance of type {type.Name} has not been injected using the InjectShared(...) method!");
+                    throw new Exception(
+                        $"The instance of type {type.Name} has not been injected using the InjectShared(...) method!");
                 }
 #endif
                 return _dictionary[type];
             }
         }
     }
-    
+
     public class EcsInjectAttribute : Attribute
     {
     }
